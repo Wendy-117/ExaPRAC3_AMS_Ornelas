@@ -1,0 +1,65 @@
+@startuml
+
+class Usuario{
+  - idU: int
+  - nombre: String
+  - email: String
+  - password: String
+  --
+  + navegarCatalogo(): List<Producto>
+  + agregarAlCar(p: Producto, cantidad: int): void
+}
+
+class Categoria{
+  - idC: int
+  - nombre: String
+  - descripcion: String
+  --
+  + obtenerProduc(): List<Producto>
+}
+
+class Producto{
+    - idProdu: int
+    - nombre: String
+    - descri: String
+    - precio: double
+    - stock: int
+    - esProduEstrella: boolean
+    - imagenUrl: String
+    --
+    + obtenerEstadoStock(): String
+    + obtenerEtiquetaAcc(): String
+    + obtenerColorSemaforo(): String
+}
+
+class Carrito{
+    - idCarrito: int
+    - fechaCreacion: Date
+    --
+    + agregarItem(p: Producto, cantidad: int): void
+    + eliminarItem(idProdu: int): void
+    + calcularTotal(): double
+}
+
+class ItemCarrito{
+    - cantidad: int
+    - subtotal: double
+    --
+`   + calcularSubtotal(): double
+}
+
+class Pedido{
+    - idPedido: int
+    - fechaPedido: Date
+    - total: double
+    - estadoPago: String
+    --
+    + confirmarCompra(): booelan
+}
+Usuario "1" -- "0..1" Carrito : posee >
+Usuario "1" -- "0..*" Pedido : realiza >
+Carrito "1" *-- "1..*" ItemCarrito : contiene >
+ItemCarrito "0..*" -- "1" Producto : refiere a >
+Categoria "1" o-- "0..*" Producto : agrupa >
+Pedido "1" -- "1..*" ItemCarrito : consolida >
+@enduml

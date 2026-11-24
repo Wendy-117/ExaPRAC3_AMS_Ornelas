@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+
+actor "Cliente" as cl
+actor "Administrador" as A
+
+rectangle "Tienda Online EcoPaso"{
+    usecase "Visualizar Pagina" as UC1
+    usecase "Filtrar por categoria" as UC2
+    usecase "Consultar detalle y disponibilidad" as UC3
+    usecase "Iniciar compra rapida" as UC4
+    usecase "Gestionar carrito y confirmar pedido" as UC5
+    usecase "Actualizar inventario" as UC6
+}
+UC1 <.. UC2 : <<extend>>
+UC1 ..> UC3 : <<include>>
+UC3 <.. UC4 : <<extend>>
+UC4 ..> UC5 : <<include>>
+
+c1 --> UC1
+c1 --> UC2
+c1 --> UC3
+c1 --> UC4
+c1 --> UC5
+
+A --> UC6
+UC6 ..> UC3 : actualiza estado
+@enduml

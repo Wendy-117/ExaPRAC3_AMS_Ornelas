@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoPaso - Calzado sostenible</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="EcoPaso inicio">
+      <span class="brand-mark">E</span>
+      <span>ECOPASO</span>
+    </a>
+    <nav aria-label="Navegacion principal">
+      <a class="active" href="#inicio">Inicio</a>
+      <a href="#catalogo">Running</a>
+      <a href="#catalogo">Urbano</a>
+      <a href="#catalogo">Trail</a>
+    </nav>
+    <button class="cart-button" id="cartButton" type="button" aria-label="Abrir carrito">
+      Carrito <span id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow">Calzado sostenible</p>
+        <h1>EcoRunner 2026</h1>
+        <p>Zapatillas deportivas fabricadas con materiales naturales y reciclados.</p>
+        <a class="primary-button" href="#catalogo">Comprar ahora</a>
+      </div>
+      <div class="hero-shoe" aria-label="Zapatilla EcoPaso destacada">
+        <div class="shoe-sole"></div>
+        <div class="shoe-body">
+          <span class="shoe-laces"></span>
+          <span class="shoe-logo">E</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalogo">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Catálogo</p>
+          <h2>Nuestras zapatillas</h2>
+        </div>
+        <div class="filters" aria-label="Filtrar por categoria">
+          <button class="filter active" type="button" data-category="Todas">Todas</button>
+          <button class="filter" type="button" data-category="Running">Running</button>
+          <button class="filter" type="button" data-category="Urbano">Urbano</button>
+          <button class="filter" type="button" data-category="Trail">Trail</button>
+        </div>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+  </main>
+
+  <aside class="cart-panel" id="cartPanel" aria-hidden="true">
+    <div class="cart-header">
+      <h2>Tu carrito</h2>
+      <button id="closeCart" type="button" aria-label="Cerrar carrito">×</button>
+    </div>
+    <div id="cartItems" class="cart-items">
+      <p class="empty-cart">Tu carrito está vacío.</p>
+    </div>
+    <div class="cart-footer">
+      <div><span>Total</span><strong id="cartTotal">$0</strong></div>
+      <button id="checkoutButton" class="primary-button" type="button">Confirmar compra</button>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <div class="toast" id="toast" role="status">Producto agregado</div>
+
+  <script src="app.js"></script>
+</body>
+</html>

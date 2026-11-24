@@ -1,0 +1,37 @@
+@startuml
+start
+:Usuario ingresa a la pagina principal de "EcoPaso";
+:Sistema renderiza Header, Banner Hero (Producto Estrella),
+Barra de Categorias y Cuadricula de Productos;
+
+repeat
+  if (Usuario selecciona una categoria?) then (SI)
+    :Filtrar cuadricula por categoria seleccionada;
+  else (NO)
+    :Mostrar productos destacados;
+  endif
+
+  :Usuario selecciona o visualiza una ficha de zapatilla;
+
+  partition "Evaluacion Visual e Inclusiva" {
+    if (Stock > 10?) then (SI)
+      :Mostrar badge Verde "Disponible";
+    elseif (Stock > 0 y <= 10?) then (SI)
+      :Mostrar badge Amarillo/Naranja "Pocas unidades";
+    else (Stock == 0)
+      :Mostrar badge Rojo "Agotado";
+    endif
+  }
+
+  if (Producto disponible y usuario presiona "Comprar ahora" ?) then (SI)
+    :Agregar producto al carrito;
+    :Procesar datos de envio y pago;
+    :Confirmar compra y descontar stock;
+    stop
+  else (NO / Producto Agotado)
+    :Continuar explorando catalogo;
+  endif
+repeat while (Desea seguir navegando?) is (SI)
+-> NO;
+stop
+@enduml

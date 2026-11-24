@@ -1,0 +1,39 @@
+@startsalt
+{
+  {
+    <b>ECOPASO</b> | Inicio | Running | Urbano | [ Carrito ]
+  }
+  --
+  {+
+    <b>PRODUCTO ESTRELLA</b>
+    Zapatillas ecologicas destacadas
+    [ Comprar ahora ]
+  }
+  --
+  {
+    Categorias: | [ Todas ] | [ Running ] | [ Urbano ] | [ Trail ]
+  }
+  --
+  {
+    {+
+      [ Foto Zapatilla 1 ]
+      Modelo Eco 1
+      $1,800
+      Verde: Disponible
+      [ Comprar ahora ]
+    } | {
+      [ Foto Zapatilla 2 ]
+      Modelo Eco 2
+      $2,100
+      Amarillo: Pocas unidades
+      [ Comprar ahora ]
+    } | {
+      [ Foto Zapatilla 3 ]
+      Modelo Eco 3
+      $2,400
+      Rojo: Agotado
+      [ Agotado ]
+    }
+  }
+}
+@endsalt
